@@ -15,6 +15,7 @@ pub trait Epsilon: Alphabet {
 pub enum Reject<S: State, I> {
     NotAccept(S),
     InvalidInput(I),
+    ThisCannotContinue,
 }
 
 pub trait Automaton<S>

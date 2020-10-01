@@ -32,6 +32,8 @@ pub fn derive_alphabet(input: TokenStream) -> TokenStream {
     proc_macro::TokenStream::from(expanded)
 }
 
+// Some ideas
+
 // use ron::de::from_reader;
 // use serde::Deserialize;
 
@@ -52,15 +54,27 @@ pub fn derive_alphabet(input: TokenStream) -> TokenStream {
 //     println!("Config: {:?}", &config);
 // }
 
-// #[macro_export]
-// macro_rules! vec {
-//     ( $( $x:expr ),* ) => {
-//         {
-//             let mut temp_vec = Vec::new();
-//             $(
-//                 temp_vec.push($x);
-//             )*
-//             temp_vec
-//         }
-//     };
+// #[proc_macro_attribute]
+// pub fn show_streams(attr: TokenStream, item: TokenStream) -> TokenStream {
+//     println!("attr: \"{}\"", attr.to_string());
+//     println!("item: \"{}\"", item.to_string());
+//     item
+// }
+
+// use seq::seq;
+
+// seq!(N in 0..512 {
+//     #[derive(Copy, Clone, PartialEq, Debug)]
+//     pub enum Processor {
+//         #(
+//             Cpu#N,
+//         )*
+//     }
+// });
+
+// fn main() {
+//     let cpu = Processor::Cpu8;
+
+//     assert_eq!(cpu as u8, 8);
+//     assert_eq!(cpu, Processor::Cpu8);
 // }
