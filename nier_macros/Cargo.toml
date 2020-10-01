@@ -1,0 +1,20 @@
+[package]
+name = "nier_macros"
+version = "0.1.0"
+authors = ["Jack Frost <j4qfrost@gmail.com>"]
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+quote = "1.0"
+ron = "0.6"
+syn = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+
+nier = { path = "../nier" }
+
+[[example]]
+name = "dfa"
+path = "../examples/dfa.rs"

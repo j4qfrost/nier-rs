@@ -1,0 +1,2 @@
+[workspace]
+members = ["nier", "nier_macros"]
