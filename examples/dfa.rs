@@ -21,7 +21,9 @@ struct Machine {
 
 impl Machine {
     fn new() -> Self {
-        Self { current: Self::initial() }
+        Self {
+            current: Self::initial(),
+        }
     }
 
     fn reset(&mut self) {
@@ -36,10 +38,7 @@ impl Deterministic<SimpleState, SimpleAlphabet> for Machine {
         SimpleState::Zero
     }
 
-    fn delta(
-        state: &SimpleState,
-        input: SimpleAlphabet,
-    ) -> Result<SimpleState, SimpleReject> {
+    fn delta(state: &SimpleState, input: SimpleAlphabet) -> Result<SimpleState, SimpleReject> {
         match (state, input) {
             (SimpleState::Zero, SimpleAlphabet::A) => Ok(SimpleState::One),
             (SimpleState::Zero, SimpleAlphabet::B) => Ok(SimpleState::Zero),

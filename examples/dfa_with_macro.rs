@@ -14,16 +14,23 @@ enum SimpleAlphabet {
 }
 
 #[derive(Automaton, Deterministic, Acceptor)]
-#[state = "SimpleState"]
-#[alphabet = "SimpleAlphabet"]
-#[source = "examples/dfa.ron"]
+// #[state = "SimpleState"]
+// #[alphabet = "SimpleAlphabet"]
+// #[source = "examples/dfa.ron"]
+#[nier(
+    state = "SimpleState",
+    alphabet = "SimpleAlphabet",
+    source = "examples/dfa.ron"
+)]
 struct Machine {
     current: SimpleState,
 }
 
 impl Machine {
     fn new() -> Self {
-        Self { current: Self::initial() }
+        Self {
+            current: Self::initial(),
+        }
     }
 
     fn reset(&mut self) {
