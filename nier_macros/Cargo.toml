@@ -18,3 +18,7 @@ nier = { path = "../nier" }
 [[example]]
 name = "dfa"
 path = "../examples/dfa.rs"
+
+[[example]]
+name = "dfa_with_macro"
+path = "../examples/dfa_with_macro.rs"
