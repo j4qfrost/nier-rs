@@ -1,0 +1,22 @@
+(
+    name: "Machine",
+    state_name: "SimpleState",
+    states: [
+        "Zero",
+        "One",
+    ],
+    alphabet_name: "SimpleAlphabet",
+    alphabet: [
+        "A",
+        "B",
+    ],
+    initial_state: "Zero",
+    transitions: [
+        ("Zero", "A", "One"),
+        ("Zero", "B", "Zero"),
+        ("One", "B", "One"),
+    ],
+    accept_states: [
+        "Zero"
+    ],
+)
