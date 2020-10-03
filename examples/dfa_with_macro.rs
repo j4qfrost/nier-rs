@@ -13,41 +13,12 @@ enum SimpleAlphabet {
     B,
 }
 
-type SimpleReject = Reject<SimpleState, SimpleAlphabet>;
-
-#[derive(Automaton)]
+#[derive(Automaton, Deterministic, Acceptor)]
 #[state = "SimpleState"]
 #[alphabet = "SimpleAlphabet"]
-#[source = "example/dfa.ron"]
+#[source = "examples/dfa.ron"]
 struct Machine {
     current: SimpleState,
-}
-
-impl Deterministic<SimpleState, SimpleAlphabet> for Machine {
-    fn initial() -> SimpleState {
-        SimpleState::Zero
-    }
-
-    fn delta(
-        state: &SimpleState,
-        input: SimpleAlphabet,
-    ) -> Result<SimpleState, SimpleReject> {
-        match (state, input) {
-            (SimpleState::Zero, SimpleAlphabet::A) => Ok(SimpleState::One),
-            (SimpleState::Zero, SimpleAlphabet::B) => Ok(SimpleState::Zero),
-            (SimpleState::One, SimpleAlphabet::B) => Ok(SimpleState::One),
-            _ => Err(Reject::InvalidInput(input.clone())),
-        }
-    }
-}
-
-impl Acceptor<SimpleState> for Machine {
-    fn accept(current: &SimpleState) -> Result<SimpleState, Reject<SimpleState, ()>> {
-        match current {
-            SimpleState::Zero => Err(Reject::NotAccept(current.clone())),
-            SimpleState::One => Ok(current.clone()),
-        }
-    }
 }
 
 impl Machine {

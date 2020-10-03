@@ -52,8 +52,8 @@ impl Deterministic<SimpleState, SimpleAlphabet> for Machine {
 impl Acceptor<SimpleState> for Machine {
     fn accept(current: &SimpleState) -> Result<SimpleState, Reject<SimpleState, ()>> {
         match current {
-            SimpleState::Zero => Err(Reject::NotAccept(current.clone())),
             SimpleState::One => Ok(current.clone()),
+            SimpleState::Zero => Err(Reject::NotAccept(current.clone())),
         }
     }
 }
