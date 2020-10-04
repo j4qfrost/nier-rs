@@ -5,7 +5,7 @@ use std::collections::HashMap;
 use syn::{parse_macro_input, DeriveInput, Lit, Meta, MetaList, MetaNameValue};
 
 use cache_macro::cache;
-use lru_cache::LruCache;
+use lru::LruCache;
 use ron::de::from_str;
 use serde::Deserialize;
 use std::env;

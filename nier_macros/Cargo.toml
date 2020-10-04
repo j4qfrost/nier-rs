@@ -8,9 +8,9 @@ edition = "2018"
 proc-macro = true
 
 [dependencies]
-cache-macro = "0.4"
+cache-macro = { git = "https://github.com/j4qfrost/cache-macro.git" }
 lazy_static = "1.4"
-lru-cache = "0.1"
+lru = "0.6"
 quote = "1.0"
 ron = "0.6"
 syn = { version = "1.0" }
